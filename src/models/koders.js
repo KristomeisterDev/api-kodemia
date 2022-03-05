@@ -1,41 +1,42 @@
+//importamos mongoose
 const mongoose = require('mongoose')
-
+//realizamos el schema para generar el modelo
 const koderSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
         minlength: 3,
         maxlength: 100,
-        trim: true, // si la cadena llena con espacios al principio o al final, los quita
+        trim: true // si la cadena llena con espacios al principio o al final, los quita
       },
       lastName: {
         type: String,
         required: true,
         minlength: 3,
         maxlength: 100,
-        trim: true,
+        trim: true
       },
       age: {
         type: Number,
         required: true,
         min: 0,
-        max: 100,
+        max: 100
       },
       gender: {
         type: String,
         required: true,
         trim: true,
-        enum: ["m", "f"],
+        enum: ["m", "f"]
       },
       generation: {
         type: Number,
         required: true,
         min: 0,
-        max: 100,
+        max: 100
       },
     
 })
-
+//generamos el modelo, recibiendo la coleccion y el esquema
 const model = mongoose.model('koders', koderSchema)
-
-module.exports = model
+//exportamos el modelo para los usecases
+module.exports = model 
